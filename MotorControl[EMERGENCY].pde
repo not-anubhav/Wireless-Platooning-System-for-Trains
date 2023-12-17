@@ -1,13 +1,13 @@
 #define irsensorpin 18
-const int motorPWM = 2;   // PWM pin for motor speed control
-const int motorDirection1 = 4;  // GPIO pin for motor direction control 1
-const int motorDirection2 = 5;  // GPIO pin for motor direction control 2
+const int Enable = 2;   // PWM pin for motor speed control
+const int IN1 = 4;  // GPIO pin for motor direction control 1
+const int IN2 = 5;  // GPIO pin for motor direction control 2
 
 void setup() {
   pinMode(irsensorpin, INPUT);
-  pinMode(motorPWM, OUTPUT);
-  pinMode(motorDirection1, OUTPUT);
-  pinMode(motorDirection2, OUTPUT);
+  pinMode(Enable, OUTPUT);
+  pinMode(IN1, OUTPUT);
+  pinMode(IN2, OUTPUT);
 
   // Initialize Serial communication for debugging
   Serial.begin(115200);
@@ -28,15 +28,15 @@ void loop() {
 }
  
 void motorForward() {
-  digitalWrite(motorDirection1, HIGH);
-  digitalWrite(motorDirection2, LOW);
-  analogWrite(motorPWM, 255);  // Full speed (adjust as needed)
+  digitalWrite(IN1, HIGH);
+  digitalWrite(IN2, LOW);
+  analogWrite(Enable, 255);  // Full speed (adjust as needed)
   Serial.println("Motor moving forward");
 }
 
 void motorStop() {
-  digitalWrite(motorDirection1, LOW);
-  digitalWrite(motorDirection2, LOW);
-  analogWrite(motorPWM, 0);  // Stop the motor
+  digitalWrite(IN1, LOW);
+  digitalWrite(IN2, LOW);
+  analogWrite(Enable, 0);  // Stop the motor
   Serial.println("Motor stopped");
 }
