@@ -20,9 +20,9 @@ void setup() {
 }
 
 void loop() {
+  lcd.setCursor(0, 0);
   int state = digitalRead(irsensorpin);
   if (state == HIGH){
-    lcd.setCursor(0, 0);
     lcd.print("The obstacle is NOT present");
     Serial.println("The obstacle is NOT present");
     motorForward();
@@ -38,19 +38,19 @@ void loop() {
 }
  
 void motorForward() {
+  lcd.setCursor(0, 1);
   digitalWrite(IN1, HIGH);
   digitalWrite(IN2, LOW);
   analogWrite(Enable, 255);  // Full speed (adjust as needed)
-  lcd.setCursor(0, 1);
   lcd.print("Train Moving Forward");
   Serial.println("Motor moving forward");
 }
 
 void motorStop() {
+  lcd.setCursor(0, 1);
   digitalWrite(IN1, LOW);
   digitalWrite(IN2, LOW);
   analogWrite(Enable, 0);  // Stop the motor
-  lcd.setCursor(0, 1);
   lcd.print("Train Stopped!");
   Serial.println("Motor stopped!");
 }
