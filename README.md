@@ -63,7 +63,7 @@ This project aims to develop a wireless platooning system that allows multiple t
    ```sh
    git clone https://github.com/your-username/train-platooning-system.git
    cd train-platooning-system
-   Install Arduino Libraries:
+  Install Arduino Libraries:
 
 2.Install necessary libraries for ESP32, Blynk, NRF24L01, and GPS modules from the Arduino Library Manager:
     WiFi.h
